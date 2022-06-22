@@ -7,5 +7,5 @@ Current features:
 easy install of mods (work in progress)
 says your IP to join
 
-#installation
+# installation
 go to Releases>V1.0> click ElytraBinary.zip
