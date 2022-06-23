@@ -12,4 +12,4 @@ Current features:
 work so try not to open bedrock_server.exe! <strong> So make sure you open Server.exe instead! </strong>
 
 # installation
-go to Releases> V1.0 > click ElytraBinary.zip > Unzip > Open server.py
+go to Releases> V1.0 > click ElytraBinary.zip > Unzip > Open server.exe
