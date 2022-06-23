@@ -8,4 +8,4 @@ Current features:
 + says your IP to join
 
 # installation
-go to Releases> V1.0 > click ElytraBinary.zip
+go to Releases> V1.0 > click ElytraBinary.zip > Unzip > Open server.py
