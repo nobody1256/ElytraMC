@@ -6,7 +6,7 @@ More features coming soon!
 Current features:
 + Easy install of mods (work in progress)
 + Says your IP to join
-+ Custom command
++ Custom commands
 + Will not edit your world in any way (except for adding mods)
 
 
