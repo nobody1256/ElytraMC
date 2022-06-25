@@ -16,6 +16,9 @@ from optparse import OptionParser
 
 import argparse
 
+from zipfile import ZipFile
+
+
 chk_file = Path("ElytraSettings/install.txt")
 
 if chk_file.is_file():
@@ -85,10 +88,10 @@ print("Folder check Complete...")
 
 
 def install ():
-    get = "https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.1.01.zip"
+    get = "https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.2.02.zip"
     r = requests.get(get, allow_redirects=True)
-    open('bedrock-server-1.19.1.01.zip', 'wb').write(r.content)
-    shutil.unpack_archive('bedrock-server-1.19.1.01.zip')
+    open('bedrock-server-1.19.2.02.zip', 'wb').write(r.content)
+    shutil.unpack_archive('bedrock-server-1.19.2.02.zip')
 
 
 print("[Server] Type help for commands")
@@ -116,11 +119,12 @@ else:
     print("[Server] No Behavior packs detected")
 
 
+
 chk_file9 = Path("temp/Enter_beta.txt")
 
 if chk_file9.is_file():
     print("==================================================================")
-    print("|                         Elytra (V1.0)                          |")
+    print("|                         Elytra (V1.1)                          |")
     print("|                             (Beta)                             |")
     print("|             Leave the beta by removeing Enter_beta.txt         |")
     print("|                                                                |")
@@ -134,7 +138,7 @@ if chk_file9.is_file():
 else:
     time.sleep(3)
     print("==================================================================")
-    print("|                         Elytra (V1.0)                          |")
+    print("|                         Elytra (V1.1)                          |")
     print("|          To enter the beta versions of elytra make a file      |")
     print("|                   called Enter_beta.txt in temp                |")
     print("|                                                                |")
@@ -172,11 +176,29 @@ time.sleep(0.5)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-
 s.connect(("8.8.8.8", 80))
 
 print("Joinable IP: ",s.getsockname()[0])
 s.close()
+
+while True :
+    cmd = input()
+    if cmd == "elytra sys" :
+        Id = subprocess.check_output(['systeminfo']).decode('utf-8').split('\n')
+        new = []
+
+        
+        for item in Id:
+            new.append(str(item.split("\r")[:-1]))
+        for i in new:
+            print(i[2:-2])
+    cmd = input()
+
+
+
+
+
+
 
 
 
