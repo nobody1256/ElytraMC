@@ -4,7 +4,7 @@ Minecraft Bedrock server software based of BDS
 # Features
 More features coming soon!
 Current features:
-+ Easy install of mods (work in progress)
++ Easy installation of mods (work in progress)
 + Says your IP to join
 + Custom commands
 + Will not edit your world in any way (except for adding mods)
