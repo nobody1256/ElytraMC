@@ -31,3 +31,5 @@ failes the first time try again until it works.
 Commands:
 
 + elytra sys (tells info about your system)
++ elytra mods (lists mods)
++ elytra worlds (lists worlds)
