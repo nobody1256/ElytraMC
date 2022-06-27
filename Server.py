@@ -40,10 +40,10 @@ if chk_file.is_file():
     delete = "bedrock-server-1.19.1.01.zip"
     os.remove(delete)
  
-    print("[Server] Server marked as installed")
+    print("[Elytra] Server marked as installed")
 else:
  
-    print("[Server] Server already marked as installed! Starting")
+    print("[Elytra] Server already marked as installed! Starting")
 
 
 
@@ -94,7 +94,7 @@ def install ():
     shutil.unpack_archive('bedrock-server-1.19.2.02.zip')
 
 
-print("[Server] Type help for commands")
+print("[Elytra] Type help for commands")
 
 print(startmsg)
 
@@ -106,7 +106,7 @@ if chk_file2.is_file():
     shutil.move(rfrom, rto)
 
 else:
-    print("[Server] No resource packs detected")
+    print("[Elytra] No resource packs detected")
 
 
 chk_file3 = Path("mods/behavior_packs/pack")
@@ -116,7 +116,7 @@ if chk_file3.is_file():
     shutil.move()
 
 else:
-    print("[Server] No Behavior packs detected")
+    print("[Elytra] No Behavior packs detected")
 
 
 
@@ -124,7 +124,7 @@ chk_file9 = Path("temp/Enter_beta.txt")
 
 if chk_file9.is_file():
     print("==================================================================")
-    print("|                         Elytra (V1.1)                          |")
+    print("|                         Elytra (V1.2)                          |")
     print("|                             (Beta)                             |")
     print("|             Leave the beta by removeing Enter_beta.txt         |")
     print("|                                                                |")
@@ -138,7 +138,7 @@ if chk_file9.is_file():
 else:
     time.sleep(3)
     print("==================================================================")
-    print("|                         Elytra (V1.1)                          |")
+    print("|                         Elytra (V1.2)                          |")
     print("|          To enter the beta versions of elytra make a file      |")
     print("|                   called Enter_beta.txt in temp                |")
     print("|                                                                |")
@@ -155,7 +155,7 @@ chk_file3 = Path("behavior_packs/vanilla_1.19.0/biomes/cold_taiga_hills.biome.js
 if chk_file3.is_file():
     cont 
 else:
-    print("[Server] Error behavior_packs folder is missing and is needed to start the server!")
+    print("[Elytra] Error behavior_packs folder is missing and is needed to start the server!")
     time.sleep(4)
     print("Stopping server...")
     time.sleep(2)
@@ -166,7 +166,7 @@ chk_file3 = Path("resource_packs/vanilla/blocks.json")
 if chk_file3.is_file():
     cont 
 else:
-    print("[Server] Error Resource_packs folder is missing and is needed to start the server!")
+    print("[Elytra] Error Resource_packs folder is missing and is needed to start the server!")
     time.sleep(4)
     print("Stopping server...")
     time.sleep(2)
@@ -178,10 +178,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 s.connect(("8.8.8.8", 80))
 
-print("Joinable IP: ",s.getsockname()[0])
+print("[Elytra] Joinable IP: ",s.getsockname()[0])
 s.close()
 
 while True :
+    time.sleep(0.5)
     cmd = input()
     if cmd == "elytra sys" :
         Id = subprocess.check_output(['systeminfo']).decode('utf-8').split('\n')
@@ -193,6 +194,16 @@ while True :
         for i in new:
             print(i[2:-2])
     cmd = input()
+    if cmd == "elytra mods" :
+        path = 'mods'
+        files = os.listdir(path)
+        for filename in files:
+            print(filename)
+    if cmd == "elytra worlds" :
+        path = 'worlds'
+        files = os.listdir(path)
+        for filename in files:
+            print(filename)
 
 
 
