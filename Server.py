@@ -23,24 +23,47 @@ chk_file = Path("ElytraSettings/install.txt")
 
 if chk_file.is_file():
     print("Server not installed! Installing now...")
+    print("What os are you using? (windows or linux)")
+    s = input()
+    if s == "windows" :
+        print("Downloading BDS")
     
-    print("Downloading BDS")
- 
-    get = "https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.1.01.zip"
- 
-    r = requests.get(get, allow_redirects=True)
- 
-    open('bedrock-server-1.19.1.01.zip', 'wb').write(r.content)
- 
-    shutil.unpack_archive('bedrock-server-1.19.1.01.zip')
- 
-    print("Install Complete! Starting...")
- 
-    os.remove(chk_file)
-    delete = "bedrock-server-1.19.1.01.zip"
-    os.remove(delete)
- 
-    print("[Elytra] Server marked as installed")
+        get = "https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.10.03.zip"
+    
+        r = requests.get(get, allow_redirects=True)
+    
+        open('bedrock-server-1.19.10.03.zip', 'wb').write(r.content)
+    
+        shutil.unpack_archive('bedrock-server-1.19.10.03.zip')
+    
+        print("Install Complete! Starting...")
+    
+        os.remove(chk_file)
+        delete = "bedrock-server-1.19.10.03.zip"
+        os.remove(delete)
+    
+        print("[Elytra] Server marked as installed")
+    if s == "linux" :
+        print("Downloading BDS")
+    
+        get = "https://minecraft.azureedge.net/bin-linux/bedrock-server-1.19.10.03.zip"
+    
+        r = requests.get(get, allow_redirects=True)
+    
+        open('bedrock-server-1.19.10.03.zip', 'wb').write(r.content)
+    
+        shutil.unpack_archive('bedrock-server-1.19.10.03.zip')
+    
+        print("Install Complete! Starting...")
+    
+        os.remove(chk_file)
+        delete = "bedrock-server-1.19.1.01.zip"
+        os.remove(delete)
+    
+        print("[Elytra] Server marked as installed")
+
+
+
 else:
  
     print("[Elytra] Server already marked as installed! Starting")
@@ -124,7 +147,7 @@ chk_file9 = Path("temp/Enter_beta.txt")
 
 if chk_file9.is_file():
     print("==================================================================")
-    print("|                         Elytra (V1.2)                          |")
+    print("|                         Elytra (V1.3)                          |")
     print("|                             (Beta)                             |")
     print("|             Leave the beta by removeing Enter_beta.txt         |")
     print("|                                                                |")
@@ -138,7 +161,7 @@ if chk_file9.is_file():
 else:
     time.sleep(3)
     print("==================================================================")
-    print("|                         Elytra (V1.2)                          |")
+    print("|                         Elytra (V1.3)                          |")
     print("|          To enter the beta versions of elytra make a file      |")
     print("|                   called Enter_beta.txt in temp                |")
     print("|                                                                |")
@@ -204,14 +227,14 @@ while True :
         files = os.listdir(path)
         for filename in files:
             print(filename)
-
-
-
-
-
-
-
-
-
-
-
+    if cmd == "elytra info" :
+        print("You might want to check github for new features, info and updates!")
+    if cmd == "elytra kill" :
+        print("are you sure you want to kill the server? This can cause world corruption or 1-5 minute set backs and other errors! (yes or no)")
+        confirm = input()
+        if confirm == "yes" :
+            print("[Elytra] killing...")
+            subprocess.Popen('server.py', shell=True)
+            exit()
+        if confirm == "no" :
+            pass
