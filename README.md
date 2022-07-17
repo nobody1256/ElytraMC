@@ -2,7 +2,7 @@
 Minecraft Bedrock server software based of BDS
 
 # OS Info
-Elytra supports both Windows and Linux however on linux (Ubuntu only) you have to build it from source or use the install script (coming soon)!
+Elytra supports both Windows and Linux however on linux (Ubuntu only) you have to build it from source (scroll all the way down) or use the install script (coming soon)!
 
 
 
@@ -40,3 +40,6 @@ Commands:
 + elytra worlds (lists worlds)
 + elytra info (info about elytra)
 + elytra kill (force kill the server)
+
+# Build from source:
+'test'
