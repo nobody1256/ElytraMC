@@ -41,6 +41,11 @@ Commands:
 + elytra info (info about elytra)
 + elytra kill (force kill the server)
 
-# Build from source:
+# Build from source (Linux):
 
-```test
+``` apt install python
+``` pip install requests
+``` apt install unzip
+``` download and unzip elytra
+
+
