@@ -42,4 +42,5 @@ Commands:
 + elytra kill (force kill the server)
 
 # Build from source:
-'test'
+
+```test
