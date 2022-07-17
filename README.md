@@ -16,7 +16,7 @@ Current features:
 work so try not to open bedrock_server.exe! <strong> So make sure you open Server.exe instead! </strong>
 
 # installation
-go to Releases> V1.0 > click ElytraBinary.zip > Unzip > Open Server.exe
+go to Releases> V1.3 > click Elytra.V1.3.zip > Unzip > Open Server.exe
 
 # Custom commands:
 Elytra has custom commands only available from the console if the command 
@@ -33,3 +33,5 @@ Commands:
 + elytra sys (tells info about your system)
 + elytra mods (lists mods)
 + elytra worlds (lists worlds)
++ elytra info (info about elytra)
++ elytra kill (force kill the server)
