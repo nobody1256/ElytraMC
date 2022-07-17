@@ -12,11 +12,15 @@ import socket
 
 import subprocess
 
-from optparse import OptionParser
+#from jproperties import Properties
 
 import argparse
 
 from zipfile import ZipFile
+
+import json
+
+version = "1.4"
 
 
 chk_file = Path("ElytraSettings/install.txt")
@@ -77,44 +81,34 @@ def cont ():
     print("continue")
 
 
-startmsg = "Finding mods..."
+startmsg = "[Elytra] Finding resource and behavior packs..."
 
 print("Starting Elytra...")
 
 time.sleep(0.5)
 
-try: 
-    os.mkdir('mods') 
-except OSError as error: 
-    print(error)
+Path("mods").mkdir(parents=True, exist_ok=True)
 
-try: 
-    os.mkdir('Logs') 
-except OSError as error: 
-    print(error)
+Path("mods/resource_packs").mkdir(parents=True, exist_ok=True)
 
-try: 
-    os.mkdir('info') 
-except OSError as error: 
-    print(error)
+Path("mods/behavior_packs").mkdir(parents=True, exist_ok=True)
 
-try: 
-    os.mkdir('ElytraSettings') 
-except OSError as error: 
-    print(error)
+Path("logs").mkdir(parents=True, exist_ok=True)
+
+Path("info").mkdir(parents=True, exist_ok=True)
+
+Path("ElytraSettings").mkdir(parents=True, exist_ok=True)
+
+Path("other").mkdir(parents=True, exist_ok=True)
 
 
 
 
-print("Folder check Complete...")
+
+print("[Elytra] Folder check Complete...")
 
 
 
-def install ():
-    get = "https://minecraft.azureedge.net/bin-win/bedrock-server-1.19.2.02.zip"
-    r = requests.get(get, allow_redirects=True)
-    open('bedrock-server-1.19.2.02.zip', 'wb').write(r.content)
-    shutil.unpack_archive('bedrock-server-1.19.2.02.zip')
 
 
 print("[Elytra] Type help for commands")
@@ -143,11 +137,11 @@ else:
 
 
 
-chk_file9 = Path("temp/Enter_beta.txt")
+chk_file9 = Path("ElytraSettings/Enter_beta.txt")
 
 if chk_file9.is_file():
     print("==================================================================")
-    print("|                         Elytra (V1.3)                          |")
+    print("|                         Elytra (V1.4)                          |")
     print("|                             (Beta)                             |")
     print("|             Leave the beta by removeing Enter_beta.txt         |")
     print("|                                                                |")
@@ -159,11 +153,11 @@ if chk_file9.is_file():
     print("|                                                                |")
     print("==================================================================")
 else:
-    time.sleep(3)
+    time.sleep(4)
     print("==================================================================")
-    print("|                         Elytra (V1.3)                          |")
+    print("|                         Elytra (V1.4)                          |")
     print("|          To enter the beta versions of elytra make a file      |")
-    print("|                   called Enter_beta.txt in temp                |")
+    print("|                called Enter_beta.txt in ElytraSettings         |")
     print("|                                                                |")
     print("|                                                                |")
     print("|                                                                |")
@@ -228,13 +222,15 @@ while True :
         for filename in files:
             print(filename)
     if cmd == "elytra info" :
-        print("You might want to check github for new features, info and updates!")
+        print("You might want to check github for new features, info and updates! (you are currently on version " + version + ")")
     if cmd == "elytra kill" :
         print("are you sure you want to kill the server? This can cause world corruption or 1-5 minute set backs and other errors! (yes or no)")
         confirm = input()
         if confirm == "yes" :
             print("[Elytra] killing...")
-            subprocess.Popen('server.py', shell=True)
+            subprocess.Popen('server.exe', shell=True)
             exit()
         if confirm == "no" :
             pass
+
+
