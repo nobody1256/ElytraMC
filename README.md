@@ -1,6 +1,11 @@
 # ElytraMC
 Minecraft Bedrock server software based of BDS
 
+# OS Info
+Elytra supports both Windows and Linux however on linux (Ubuntu only) you have to build it from source or use the install script (coming soon)!
+
+
+
 # Features
 More features coming soon!
 Current features:
