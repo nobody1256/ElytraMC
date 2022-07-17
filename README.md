@@ -43,11 +43,11 @@ Commands:
 
 # Build from source (Linux):
 
-``` apt install python
- pip install requests
- apt install unzip
- wget "https://github.com/nobody1256/ElytraMC/archive/refs/heads/main.zip"
- unzip filename.zip
- ./server.py
+``` apt install python ```
+``` pip install requests ```
+``` apt install unzip ```
+``` wget "https://github.com/nobody1256/ElytraMC/archive/refs/heads/main.zip" ```
+``` unzip filename.zip ```
+ ``` ./server.py ```
 
 
