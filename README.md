@@ -40,11 +40,13 @@ Commands:
 + elytra worlds (lists worlds)
 + elytra info (info about elytra)
 + elytra kill (force kill the server)
++ elytra settings (show server.properties)
 
 # Build from source (Linux):
 
 ``` apt install python 
- pip install requests 
+ pip install requests
+ pip install colorama
  apt install unzip 
  wget "https://github.com/nobody1256/ElytraMC/archive/refs/heads/main.zip" 
  unzip filename.zip 
