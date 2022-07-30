@@ -21,7 +21,7 @@ Current features:
 work so try not to open bedrock_server.exe! <strong> So make sure you open Server.exe instead! </strong>
 
 # installation
-go to Releases> V1.4 > click Elytra.V1.4.zip > Unzip > Open Server.exe
+go to Releases> V1.5 > click Elytra.V1.5.zip > Unzip > Open Server.exe
 
 # Custom commands:
 Elytra has custom commands only available from the console if the command 
