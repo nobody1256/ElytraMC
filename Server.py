@@ -12,15 +12,19 @@ import socket
 
 import subprocess
 
-#from jproperties import Properties
-
-import argparse
+import sys
 
 from zipfile import ZipFile
 
-import json
+from termcolor import colored
 
-version = "1.4"
+from colorama import Fore, Back, Style
+
+from colorama import init
+
+init(strip=False)
+
+version = "1.6"
 
 
 chk_file = Path("ElytraSettings/install.txt")
@@ -61,7 +65,7 @@ if chk_file.is_file():
         print("Install Complete! Starting...")
     
         os.remove(chk_file)
-        delete = "bedrock-server-1.19.1.01.zip"
+        delete = "bedrock-server-1.19.10.03.zip"
         os.remove(delete)
     
         print("[Elytra] Server marked as installed")
@@ -70,24 +74,38 @@ if chk_file.is_file():
 
 else:
  
-    print("[Elytra] Server already marked as installed! Starting")
+    print("[Elytra] Server already marked as installed!")
 
 
 
-subprocess.Popen('bedrock_server.exe', shell=True)
+
+subprocess.Popen('bedrock_server.exe', shell=False)
 
 
 def cont ():
     print("continue")
 
 
-startmsg = "[Elytra] Finding resource and behavior packs..."
+
+
+startmsg = colored('[Elytra] Finding resource and behavior packs...', 'green', attrs=['reverse', 'blink'])
+  
+print(startmsg)
 
 print("Starting Elytra...")
 
-time.sleep(0.5)
+chk_file46 = Path("ElytraSettings/worldname.txt")
 
-Path("mods").mkdir(parents=True, exist_ok=True)
+if chk_file46.is_file():
+    exists = colored('[Elytra] ElytraSettings/worldname.txt [exists]...', 'green', attrs=['reverse', 'blink'])
+    print(exists)
+    with open("ElytraSettings/worldname.txt", "r") as file:
+        worldname = file.readline()
+    printworldname = colored('[Elytra] Found world name: ' + worldname, 'green', attrs=['reverse', 'blink'])
+    print(printworldname)
+
+
+time.sleep(0.5)
 
 Path("mods/resource_packs").mkdir(parents=True, exist_ok=True)
 
@@ -104,11 +122,9 @@ Path("other").mkdir(parents=True, exist_ok=True)
 
 
 
+text = colored('[Elytra] Folder check Complete...', 'green', attrs=['reverse', 'blink'])
 
-print("[Elytra] Folder check Complete...")
-
-
-
+print(text)
 
 
 print("[Elytra] Type help for commands")
@@ -119,8 +135,10 @@ chk_file2 = Path("mods/resource_packs/pack")
 
 if chk_file2.is_file():
     rfrom = "mods/resource_packs/pack"
-    rto = "worlds/world/behavior_packs"
+    rto = worldname + "/resource_packs"
     shutil.move(rfrom, rto)
+    text = colored('[Elytra] Resource Pack move complete!', 'green', attrs=['reverse', 'blink'])
+    print(text)
 
 else:
     print("[Elytra] No resource packs detected")
@@ -129,7 +147,9 @@ else:
 chk_file3 = Path("mods/behavior_packs/pack")
 if chk_file3.is_file():
     modfrom = "mods/behavior_packs/pack"
-    modto = "worlds/world/resource_packs"
+    modto = worldname + "/behavior_packs"
+    text = colored('[Elytra] Behavior Pack move complete!', 'green', attrs=['reverse', 'blink'])
+    print(text)
     shutil.move()
 
 else:
@@ -141,7 +161,7 @@ chk_file9 = Path("ElytraSettings/Enter_beta.txt")
 
 if chk_file9.is_file():
     print("==================================================================")
-    print("|                         Elytra (V1.4)                          |")
+    print("|                         Elytra (V1.6)                          |")
     print("|                             (Beta)                             |")
     print("|             Leave the beta by removeing Enter_beta.txt         |")
     print("|                                                                |")
@@ -155,7 +175,7 @@ if chk_file9.is_file():
 else:
     time.sleep(4)
     print("==================================================================")
-    print("|                         Elytra (V1.4)                          |")
+    print("|                         Elytra (V1.6)                          |")
     print("|          To enter the beta versions of elytra make a file      |")
     print("|                called Enter_beta.txt in ElytraSettings         |")
     print("|                                                                |")
@@ -228,9 +248,13 @@ while True :
         confirm = input()
         if confirm == "yes" :
             print("[Elytra] killing...")
-            subprocess.Popen('server.exe', shell=True)
+            subprocess.Popen('server.py', shell=True)
             exit()
         if confirm == "no" :
             pass
-
+    if cmd == "elytra settings" :
+        print("[Elytra] Loading Settings")
+        with open("server.properties", "r") as file:
+                settings = file.readlines()
+                print(settings)
 
